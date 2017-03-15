@@ -33,21 +33,19 @@
             this.hideButton = new System.Windows.Forms.Button();
             this.startButton = new System.Windows.Forms.Button();
             this.refreshTimer = new System.Windows.Forms.Timer(this.components);
-            this.timeTrackBar = new System.Windows.Forms.TrackBar();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.minutesRadioButton = new System.Windows.Forms.RadioButton();
             this.secondsRadioButton = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.spanRadioButton = new System.Windows.Forms.RadioButton();
+            this.fillRadioButton = new System.Windows.Forms.RadioButton();
+            this.fitRadioButton = new System.Windows.Forms.RadioButton();
             this.stretchedRadioButton = new System.Windows.Forms.RadioButton();
             this.centeredRadioButton = new System.Windows.Forms.RadioButton();
             this.tiledRadioButton = new System.Windows.Forms.RadioButton();
-            this.fitRadioButton = new System.Windows.Forms.RadioButton();
-            this.fillRadioButton = new System.Windows.Forms.RadioButton();
-            this.spanRadioButton = new System.Windows.Forms.RadioButton();
             this.prevButton = new System.Windows.Forms.Button();
             this.nextButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.timeTrackBar)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,16 +72,6 @@
             // refreshTimer
             // 
             this.refreshTimer.Tick += new System.EventHandler(this.refreshTimer_Tick);
-            // 
-            // timeTrackBar
-            // 
-            this.timeTrackBar.Location = new System.Drawing.Point(12, 124);
-            this.timeTrackBar.Minimum = 1;
-            this.timeTrackBar.Name = "timeTrackBar";
-            this.timeTrackBar.Size = new System.Drawing.Size(260, 45);
-            this.timeTrackBar.TabIndex = 2;
-            this.timeTrackBar.Value = 1;
-            this.timeTrackBar.Scroll += new System.EventHandler(this.timeTrackBar_Scroll);
             // 
             // label1
             // 
@@ -132,12 +120,46 @@
             this.groupBox1.Controls.Add(this.stretchedRadioButton);
             this.groupBox1.Controls.Add(this.centeredRadioButton);
             this.groupBox1.Controls.Add(this.tiledRadioButton);
-            this.groupBox1.Location = new System.Drawing.Point(12, 175);
+            this.groupBox1.Location = new System.Drawing.Point(12, 121);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(260, 86);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Style";
+            // 
+            // spanRadioButton
+            // 
+            this.spanRadioButton.AutoSize = true;
+            this.spanRadioButton.Location = new System.Drawing.Point(6, 66);
+            this.spanRadioButton.Name = "spanRadioButton";
+            this.spanRadioButton.Size = new System.Drawing.Size(131, 17);
+            this.spanRadioButton.TabIndex = 5;
+            this.spanRadioButton.TabStop = true;
+            this.spanRadioButton.Text = "Span (Win 8 or newer)";
+            this.spanRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // fillRadioButton
+            // 
+            this.fillRadioButton.AutoSize = true;
+            this.fillRadioButton.Location = new System.Drawing.Point(85, 43);
+            this.fillRadioButton.Name = "fillRadioButton";
+            this.fillRadioButton.Size = new System.Drawing.Size(37, 17);
+            this.fillRadioButton.TabIndex = 4;
+            this.fillRadioButton.TabStop = true;
+            this.fillRadioButton.Text = "Fill";
+            this.fillRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // fitRadioButton
+            // 
+            this.fitRadioButton.AutoSize = true;
+            this.fitRadioButton.Location = new System.Drawing.Point(6, 43);
+            this.fitRadioButton.Name = "fitRadioButton";
+            this.fitRadioButton.Size = new System.Drawing.Size(36, 17);
+            this.fitRadioButton.TabIndex = 3;
+            this.fitRadioButton.TabStop = true;
+            this.fitRadioButton.Text = "Fit";
+            this.fitRadioButton.UseVisualStyleBackColor = true;
+            this.fitRadioButton.CheckedChanged += new System.EventHandler(this.fitRadioButton_CheckedChanged);
             // 
             // stretchedRadioButton
             // 
@@ -172,40 +194,6 @@
             this.tiledRadioButton.Text = "Tiled";
             this.tiledRadioButton.UseVisualStyleBackColor = true;
             // 
-            // fitRadioButton
-            // 
-            this.fitRadioButton.AutoSize = true;
-            this.fitRadioButton.Location = new System.Drawing.Point(6, 43);
-            this.fitRadioButton.Name = "fitRadioButton";
-            this.fitRadioButton.Size = new System.Drawing.Size(36, 17);
-            this.fitRadioButton.TabIndex = 3;
-            this.fitRadioButton.TabStop = true;
-            this.fitRadioButton.Text = "Fit";
-            this.fitRadioButton.UseVisualStyleBackColor = true;
-            this.fitRadioButton.CheckedChanged += new System.EventHandler(this.fitRadioButton_CheckedChanged);
-            // 
-            // fillRadioButton
-            // 
-            this.fillRadioButton.AutoSize = true;
-            this.fillRadioButton.Location = new System.Drawing.Point(85, 43);
-            this.fillRadioButton.Name = "fillRadioButton";
-            this.fillRadioButton.Size = new System.Drawing.Size(37, 17);
-            this.fillRadioButton.TabIndex = 4;
-            this.fillRadioButton.TabStop = true;
-            this.fillRadioButton.Text = "Fill";
-            this.fillRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // spanRadioButton
-            // 
-            this.spanRadioButton.AutoSize = true;
-            this.spanRadioButton.Location = new System.Drawing.Point(6, 66);
-            this.spanRadioButton.Name = "spanRadioButton";
-            this.spanRadioButton.Size = new System.Drawing.Size(131, 17);
-            this.spanRadioButton.TabIndex = 5;
-            this.spanRadioButton.TabStop = true;
-            this.spanRadioButton.Text = "Span (Win 8 or newer)";
-            this.spanRadioButton.UseVisualStyleBackColor = true;
-            // 
             // prevButton
             // 
             this.prevButton.Location = new System.Drawing.Point(12, 55);
@@ -229,7 +217,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 272);
+            this.ClientSize = new System.Drawing.Size(284, 213);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.prevButton);
             this.Controls.Add(this.groupBox1);
@@ -237,14 +225,12 @@
             this.Controls.Add(this.minutesRadioButton);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.timeTrackBar);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.hideButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "WallHaven";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.timeTrackBar)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -257,7 +243,6 @@
         private System.Windows.Forms.Button hideButton;
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.Timer refreshTimer;
-        private System.Windows.Forms.TrackBar timeTrackBar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.RadioButton minutesRadioButton;
